@@ -1,0 +1,3173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Aasi Multi Speciality Hospital – Patient Health is Our Only Concern. 100-bed hospital in Ramanathapuram, Tamil Nadu. Cardiology, Neurology, Orthopaedics & more. 24/7 Emergency.">
+    <title>Aasi Multi Speciality Hospital | Ramanathapuram, Tamil Nadu</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --red: #e31e24;
+            --red-d: #b91519;
+            --red-l: #ff5a5f;
+            --dark: #080c14;
+            --dark2: #0f1624;
+            --dark3: #161e30;
+            --white: #fff;
+            --off: #f7f9fc;
+            --grey: #6b7280;
+            --lg: #e5e7eb;
+            --bs: 0 4px 24px rgba(0, 0, 0, .08);
+            --bsm: 0 12px 48px rgba(0, 0, 0, .13);
+            --bsl: 0 24px 80px rgba(0, 0, 0, .18);
+            --bsr: 0 8px 32px rgba(227, 30, 36, .28);
+            --r: 16px;
+            --rs: 10px;
+            --rl: 24px;
+            --tr: all .35s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            overflow-x: hidden;
+            cursor: none
+        }
+
+        /* CURSOR */
+        #cur {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: var(--red);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width .2s, height .2s
+        }
+
+        #curR {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 2px solid rgba(227, 30, 36, .5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: left .12s ease, top .12s ease, width .2s, height .2s
+        }
+
+        /* LOADER */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity .7s, visibility .7s
+        }
+
+        #loader.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none
+        }
+
+        .ld-ico {
+            width: 70px;
+            height: 70px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            animation: ldp 1.2s ease-in-out infinite
+        }
+
+        .ld-ico i {
+            color: #fff;
+            font-size: 30px
+        }
+
+        @keyframes ldp {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(227, 30, 36, .5)
+            }
+
+            50% {
+                transform: scale(1.12);
+                box-shadow: 0 0 0 18px rgba(227, 30, 36, 0)
+            }
+        }
+
+        .ld-t {
+            color: rgba(255, 255, 255, .6);
+            font-size: .78rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin-bottom: 18px
+        }
+
+        .ld-b {
+            width: 220px;
+            height: 3px;
+            background: rgba(255, 255, 255, .1);
+            border-radius: 99px;
+            overflow: hidden
+        }
+
+        .ld-f {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red), var(--red-l));
+            animation: ldf 2.3s ease forwards;
+            border-radius: 99px
+        }
+
+        @keyframes ldf {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        .ld-s {
+            color: rgba(255, 255, 255, .2);
+            font-size: .66rem;
+            letter-spacing: .1em;
+            margin-top: 12px
+        }
+
+        /* MARQUEE TOP */
+        .mq-bar {
+            background: var(--red);
+            padding: 9px 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001
+        }
+
+        .mq-tr {
+            display: flex;
+            white-space: nowrap;
+            animation: mqr 30s linear infinite;
+            width: max-content
+        }
+
+        .mq-tr span {
+            color: #fff;
+            font-size: .76rem;
+            font-weight: 600;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            padding: 0 36px
+        }
+
+        .mq-tr span i {
+            margin-right: 7px;
+            font-size: .68rem
+        }
+
+        @keyframes mqr {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* NAVBAR */
+        #nav {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: top .35s ease
+        }
+
+        .nav-info {
+            background: var(--dark2);
+            padding: 7px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, .05)
+        }
+
+        .nav-info-l {
+            display: flex;
+            gap: 20px
+        }
+
+        .nav-info-l a {
+            color: rgba(255, 255, 255, .6);
+            font-size: .74rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--tr)
+        }
+
+        .nav-info-l a:hover {
+            color: var(--red-l)
+        }
+
+        .nav-emb {
+            background: var(--red);
+            color: #fff;
+            padding: 5px 16px;
+            border-radius: 99px;
+            font-size: .71rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: .05em;
+            transition: var(--tr);
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .nav-emb:hover {
+            background: #fff;
+            color: var(--red)
+        }
+
+        .nav-main {
+            background: rgba(255, 255, 255, .97);
+            backdrop-filter: blur(16px);
+            padding: 13px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .06)
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none
+        }
+
+        .logo-bx {
+            width: 46px;
+            height: 46px;
+            background: var(--red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--bsr)
+        }
+
+        .logo-bx i {
+            color: #fff;
+            font-size: 22px
+        }
+
+        .logo-nm {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.1
+        }
+
+        .logo-nm em {
+            color: var(--red);
+            font-style: normal
+        }
+
+        .logo-tg {
+            font-size: .62rem;
+            color: var(--grey);
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        .nav-lks {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none
+        }
+
+        .nav-lks a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: .81rem;
+            font-weight: 500;
+            padding: 8px 11px;
+            border-radius: 8px;
+            display: block;
+            transition: var(--tr);
+            white-space: nowrap
+        }
+
+        .nav-lks a:hover {
+            background: rgba(227, 30, 36, .07);
+            color: var(--red)
+        }
+
+        .nav-cta {
+            background: var(--red) !important;
+            color: #fff !important;
+            border-radius: 10px !important;
+            box-shadow: var(--bsr)
+        }
+
+        .nav-cta:hover {
+            background: var(--red-d) !important;
+            transform: translateY(-1px)
+        }
+
+        .ham {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: none;
+            padding: 8px
+        }
+
+        .ham span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--dark);
+            border-radius: 99px;
+            display: block;
+            transition: var(--tr)
+        }
+
+        .ham.open span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg)
+        }
+
+        .ham.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .ham.open span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg)
+        }
+
+        .mob-m {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            padding: 16px 5%;
+            border-top: 1px solid var(--lg);
+            gap: 4px
+        }
+
+        .mob-m.open {
+            display: flex
+        }
+
+        .mob-m a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500;
+            padding: 12px 16px;
+            border-radius: 10px;
+            transition: var(--tr)
+        }
+
+        .mob-m a:hover {
+            background: rgba(227, 30, 36, .07);
+            color: var(--red)
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 130px;
+            background: var(--dark)
+        }
+
+        .h-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: radial-gradient(ellipse 60% 80% at 15% 50%, rgba(227, 30, 36, .18) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 85% 20%, rgba(227, 30, 36, .08) 0%, transparent 60%), linear-gradient(135deg, #080c14 0%, #0f1624 50%, #1a0a0a 100%)
+        }
+
+        .h-grid {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+            background-size: 64px 64px
+        }
+
+        .h-img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 52%;
+            z-index: 4;
+            background: url('https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1000&q=80') center/cover no-repeat;
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .7) 20%, black 60%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .7) 20%, black 60%);
+            opacity: .55
+        }
+
+        .h-body {
+            position: relative;
+            z-index: 5;
+            padding: 0 5%;
+            max-width: 680px
+        }
+
+        .h-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(227, 30, 36, .15);
+            border: 1px solid rgba(227, 30, 36, .3);
+            color: #ff8084;
+            padding: 6px 18px;
+            border-radius: 99px;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .07em;
+            margin-bottom: 28px;
+            animation: fup .6s ease both
+        }
+
+        .h-h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 20px;
+            animation: fup .6s .1s ease both
+        }
+
+        .h-h1 em {
+            color: var(--red-l);
+            font-style: italic
+        }
+
+        .h-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.75;
+            margin-bottom: 36px;
+            max-width: 500px;
+            animation: fup .6s .2s ease both
+        }
+
+        .h-btns {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            animation: fup .6s .3s ease both
+        }
+
+        .btn-p {
+            background: var(--red);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: .9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            box-shadow: var(--bsr);
+            transition: var(--tr);
+            border: none;
+            cursor: none
+        }
+
+        .btn-p:hover {
+            background: var(--red-d);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(227, 30, 36, .45)
+        }
+
+        .btn-o {
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: .9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            transition: var(--tr);
+            cursor: none
+        }
+
+        .btn-o:hover {
+            background: rgba(255, 255, 255, .14);
+            transform: translateY(-2px)
+        }
+
+        .h-cards {
+            position: absolute;
+            right: 5%;
+            bottom: 12%;
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            animation: fup .6s .4s ease both
+        }
+
+        .hc {
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: var(--r);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            min-width: 230px
+        }
+
+        .hc-ic {
+            width: 42px;
+            height: 42px;
+            background: var(--red);
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .hc-ic i {
+            color: #fff;
+            font-size: 17px
+        }
+
+        .hc-lb {
+            font-size: .69rem;
+            color: rgba(255, 255, 255, .55)
+        }
+
+        .hc-v {
+            font-size: .9rem;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .h-sc {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, .35);
+            font-size: .66rem;
+            letter-spacing: .12em
+        }
+
+        .sc-d {
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, .2);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            padding-top: 6px
+        }
+
+        .sc-d::after {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: var(--red);
+            border-radius: 2px;
+            animation: sda 1.6s ease infinite
+        }
+
+        @keyframes sda {
+            0% {
+                transform: translateY(0);
+                opacity: 1
+            }
+
+            100% {
+                transform: translateY(10px);
+                opacity: 0
+            }
+        }
+
+        @keyframes fup {
+            from {
+                opacity: 0;
+                transform: translateY(26px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* STATS */
+        #stats {
+            background: var(--red);
+            padding: 64px 5%;
+            position: relative;
+            overflow: hidden
+        }
+
+        #stats::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")
+        }
+
+        .st-g {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1
+        }
+
+        .st-i {
+            text-align: center
+        }
+
+        .st-n {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #fff;
+            display: block;
+            line-height: 1;
+            margin-bottom: 6px
+        }
+
+        <hrfe? fsafb .>,
+        href ??>.st-l {
+            color: rgba(255, 255, 255, .75);
+            font-size: .87rem;
+            font-weight: 500
+        }
+
+        .st-dv {
+            width: 40px;
+            height: 2px;
+            background: rgba(255, 255, 255, .3);
+            margin: 10px auto 0;
+            border-radius: 1px
+        }
+
+        /* SHARED */
+        .sec {
+            padding: 96px 5%
+        }
+
+        .sec-alt {
+            background: var(--off)
+        }
+
+        .wrap {
+            max-width: 1240px;
+            margin: 0 auto
+        }
+
+        .sec-hd {
+            text-align: center;
+            margin-bottom: 56px
+        }
+
+        .sec-tag {
+            display: inline-block;
+            background: rgba(227, 30, 36, .08);
+            color: var(--red);
+            padding: 5px 16px;
+            border-radius: 99px;
+            font-size: .73rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 12px
+        }
+
+        .sec-h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.25;
+            margin-bottom: 12px
+        }
+
+        .sec-h2 em {
+            color: var(--red);
+            font-style: normal
+        }
+
+        .sec-p {
+            color: var(--grey);
+            font-size: 1rem;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.75
+        }
+
+        /* ABOUT */
+        .ab-g {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center
+        }
+
+        .ab-iw {
+            position: relative
+        }
+
+        .ab-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: var(--rl);
+            box-shadow: var(--bsl)
+        }
+
+        .ab-bd {
+            position: absolute;
+            bottom: 28px;
+            left: -18px;
+            background: #fff;
+            border-radius: var(--r);
+            padding: 18px 22px;
+            box-shadow: var(--bsm);
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .ab-bd-ic {
+            width: 48px;
+            height: 48px;
+            background: var(--red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .ab-bd-ic i {
+            color: #fff;
+            font-size: 20px
+        }
+
+        .ab-bn {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark)
+        }
+
+        .ab-bl {
+            font-size: .74rem;
+            color: var(--grey)
+        }
+
+        .ab-ac {
+            position: absolute;
+            top: 24px;
+            right: -14px;
+            background: var(--red);
+            color: #fff;
+            border-radius: var(--r);
+            padding: 16px 20px;
+            box-shadow: var(--bsr);
+            text-align: center
+        }
+
+        .ab-an {
+            font-size: 1.8rem;
+            font-weight: 900;
+            display: block
+        }
+
+        .ab-at {
+            font-size: .7rem;
+            opacity: .85
+        }
+
+        .ab-tx .sec-tag {
+            text-align: left;
+            display: block;
+            width: fit-content
+        }
+
+        .ab-h {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.3;
+            margin-bottom: 16px
+        }
+
+        .ab-h em {
+            color: var(--red);
+            font-style: normal
+        }
+
+        .ab-d {
+            color: var(--grey);
+            line-height: 1.8;
+            font-size: .94rem;
+            margin-bottom: 20px
+        }
+
+        .ab-fs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px
+        }
+
+        .af {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: .86rem;
+            font-weight: 500;
+            color: var(--dark)
+        }
+
+        .af i {
+            color: var(--red);
+            font-size: .81rem
+        }
+
+        /* SPEC */
+        .sp-g {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px
+        }
+
+        .sp-c {
+            background: #fff;
+            border-radius: var(--r);
+            padding: 32px 22px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: var(--bs);
+            transition: var(--tr);
+            cursor: none;
+            position: relative;
+            overflow: hidden
+        }
+
+        .sp-c::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transition: var(--tr);
+            transform-origin: left
+        }
+
+        .sp-c:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--bsm);
+            border-color: rgba(227, 30, 36, .15)
+        }
+
+        .sp-c:hover::before {
+            transform: scaleX(1)
+        }
+
+        .sp-ic {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            background: rgba(227, 30, 36, .07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            transition: var(--tr)
+        }
+
+        .sp-c:hover .sp-ic {
+            background: var(--red);
+            box-shadow: var(--bsr)
+        }
+
+        .sp-ic i {
+            font-size: 26px;
+            color: var(--red);
+            transition: var(--tr)
+        }
+
+        .sp-c:hover .sp-ic i {
+            color: #fff
+        }
+
+        .sp-nm {
+            font-size: .94rem;
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .sp-ds {
+            font-size: .79rem;
+            color: var(--grey);
+            line-height: 1.6
+        }
+
+        .sp-lk {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--red);
+            font-size: .77rem;
+            font-weight: 600;
+            margin-top: 13px;
+            text-decoration: none;
+            transition: var(--tr)
+        }
+
+        .sp-lk:hover {
+            gap: 10px
+        }
+
+        /* SERVICE MARQUEE */
+        .svc-mq {
+            overflow: hidden;
+            padding: 44px 0;
+            background: var(--dark2)
+        }
+
+        .svc-tr {
+            display: flex;
+            animation: mqr 22s linear infinite;
+            width: max-content
+        }
+
+        .svc-it {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            padding: 15px 28px;
+            margin-right: 22px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: var(--r);
+            white-space: nowrap
+        }
+
+        .svc-it i {
+            color: var(--red);
+            font-size: 18px
+        }
+
+        .svc-it span {
+            color: rgba(255, 255, 255, .8);
+            font-size: .84rem;
+            font-weight: 600
+        }
+
+        /* CARE */
+        .ca-g {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px
+        }
+
+        .ca-c {
+            background: #fff;
+            border-radius: var(--rl);
+            overflow: hidden;
+            box-shadow: var(--bs);
+            transition: var(--tr)
+        }
+
+        .ca-c:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--bsl)
+        }
+
+        .ca-iw {
+            overflow: hidden;
+            position: relative;
+            height: 220px
+        }
+
+        .ca-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s ease
+        }
+
+        .ca-c:hover .ca-img {
+            transform: scale(1.07)
+        }
+
+        .ca-ov {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent)
+        }
+
+        .ca-b {
+            padding: 24px 26px
+        }
+
+        .ca-tg {
+            display: inline-block;
+            background: rgba(227, 30, 36, .08);
+            color: var(--red);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            margin-bottom: 10px
+        }
+
+        .ca-tt {
+            font-size: 1.02rem;
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .ca-ds {
+            font-size: .82rem;
+            color: var(--grey);
+            line-height: 1.7;
+            margin-bottom: 16px
+        }
+
+        .btn-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--red);
+            color: #fff;
+            padding: 9px 18px;
+            border-radius: 9px;
+            font-size: .77rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--tr);
+            border: none;
+            cursor: none
+        }
+
+        .btn-sm:hover {
+            background: var(--red-d);
+            transform: translateX(3px)
+        }
+
+        /* FAC */
+        .fc-g {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px
+        }
+
+        .fc-c {
+            background: #fff;
+            border-radius: var(--r);
+            padding: 26px 22px;
+            border: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: var(--bs);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: var(--tr)
+        }
+
+        .fc-c:hover {
+            transform: translateX(5px);
+            border-color: rgba(227, 30, 36, .2);
+            box-shadow: var(--bsm)
+        }
+
+        .fc-ic {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            background: rgba(227, 30, 36, .08);
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .fc-ic i {
+            color: var(--red);
+            font-size: 21px
+        }
+
+        .fc-nm {
+            font-size: .92rem;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .fc-ds {
+            font-size: .79rem;
+            color: var(--grey);
+            line-height: 1.6
+        }
+
+        /* DOCTORS */
+        .dc-g {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px
+        }
+
+        .dc-c {
+            background: #fff;
+            border-radius: var(--rl);
+            overflow: hidden;
+            box-shadow: var(--bs);
+            border: 1px solid rgba(0, 0, 0, .07);
+            transition: var(--tr);
+            text-align: center
+        }
+
+        .dc-c:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--bsl)
+        }
+
+        .dc-iw {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb)
+        }
+
+        .dc-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top
+        }
+
+        .dc-ov {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(227, 30, 36, .88), transparent);
+            opacity: 0;
+            transition: var(--tr);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+            gap: 10px
+        }
+
+        .dc-c:hover .dc-ov {
+            opacity: 1
+        }
+
+        .dc-s {
+            width: 36px;
+            height: 36px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red);
+            font-size: 13px;
+            text-decoration: none;
+            transition: var(--tr)
+        }
+
+        .dc-s:hover {
+            background: var(--dark);
+            color: #fff
+        }
+
+        .dc-b {
+            padding: 18px 14px
+        }
+
+        .dc-nm {
+            font-size: .92rem;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .dc-sp {
+            font-size: .74rem;
+            color: var(--red);
+            font-weight: 600;
+            margin-bottom: 3px
+        }
+
+        .dc-ex {
+            font-size: .71rem;
+            color: var(--grey)
+        }
+
+        /* TESTIMONIALS */
+        #testi {
+            background: var(--dark2)
+        }
+
+        #testi .sec-h2 {
+            color: #fff
+        }
+
+        #testi .sec-p {
+            color: rgba(255, 255, 255, .45)
+        }
+
+        .ts-sl {
+            position: relative;
+            overflow: hidden
+        }
+
+        .ts-tr {
+            display: flex;
+            transition: transform .65s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .ts-pg {
+            min-width: 100%;
+            padding: 0 2px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px
+        }
+
+        .ts-cd {
+            background: rgba(255, 255, 255, .05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--rl);
+            padding: 28px
+        }
+
+        .ts-st {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 14px
+        }
+
+        .ts-st i {
+            color: #fbbf24;
+            font-size: 12px
+        }
+
+        .ts-qi {
+            color: var(--red);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: block
+        }
+
+        .ts-tx {
+            color: rgba(255, 255, 255, .68);
+            font-size: .85rem;
+            line-height: 1.78;
+            margin-bottom: 20px
+        }
+
+        .ts-au {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .ts-av {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        .ts-nm {
+            font-size: .87rem;
+            font-weight: 600;
+            color: #fff
+        }
+
+        .ts-lc {
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .38)
+        }
+
+        .ts-ct {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            margin-top: 32px
+        }
+
+        .ts-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 50%;
+            background: transparent;
+            color: #fff;
+            cursor: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--tr)
+        }
+
+        .ts-btn:hover {
+            background: var(--red);
+            border-color: var(--red)
+        }
+
+        .ts-dts {
+            display: flex;
+            gap: 6px;
+            align-items: center
+        }
+
+        .ts-dt {
+            width: 8px;
+            height: 8px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, .2);
+            border: none;
+            cursor: none;
+            transition: var(--tr)
+        }
+
+        .ts-dt.on {
+            width: 24px;
+            background: var(--red)
+        }
+
+        /* APPOINTMENT */
+        #appt {
+            background: linear-gradient(135deg, var(--red) 0%, #c0141a 100%);
+            padding: 80px 5%;
+            position: relative;
+            overflow: hidden
+        }
+
+        #appt::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -8%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05)
+        }
+
+        #appt::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .07)
+        }
+
+        .ap-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .ap-l h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 16px
+        }
+
+        .ap-l p {
+            color: rgba(255, 255, 255, .72);
+            font-size: .93rem;
+            line-height: 1.75;
+            margin-bottom: 28px
+        }
+
+        .ap-ph {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255, 255, 255, .13);
+            border-radius: var(--r);
+            padding: 18px 22px;
+            backdrop-filter: blur(8px)
+        }
+
+        .ap-ph-ic {
+            width: 44px;
+            height: 44px;
+            background: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .ap-ph-ic i {
+            color: var(--red);
+            font-size: 18px
+        }
+
+        .ap-ph-lb {
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .65)
+        }
+
+        .ap-ph-n {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .ap-fm {
+            background: #fff;
+            border-radius: var(--rl);
+            padding: 36px;
+            box-shadow: var(--bsl)
+        }
+
+        .ap-fm h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--dark)
+        }
+
+        .fr {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px
+        }
+
+        .fg {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px
+        }
+
+        .fg label {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--dark)
+        }
+
+        .fg input,
+        .fg select,
+        .fg textarea {
+            border: 1.5px solid var(--lg);
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: .86rem;
+            color: var(--dark);
+            outline: none;
+            transition: var(--tr);
+            background: var(--off)
+        }
+
+        .fg input:focus,
+        .fg select:focus,
+        .fg textarea:focus {
+            border-color: var(--red);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(227, 30, 36, .08)
+        }
+
+        .fg textarea {
+            resize: vertical;
+            min-height: 88px
+        }
+
+        .btn-blk {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+            font-size: .93rem
+        }
+
+        /* CONTACT */
+        .ct-g {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .ct-inf {
+            display: flex;
+            flex-direction: column;
+            gap: 22px
+        }
+
+        .ct-it {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: var(--r);
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: var(--bs);
+            transition: var(--tr)
+        }
+
+        .ct-it:hover {
+            border-color: rgba(227, 30, 36, .2);
+            transform: translateX(5px)
+        }
+
+        .ct-ic {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            background: rgba(227, 30, 36, .08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .ct-ic i {
+            color: var(--red);
+            font-size: 17px
+        }
+
+        .ct-lb {
+            font-size: .72rem;
+            color: var(--grey);
+            font-weight: 500;
+            margin-bottom: 2px
+        }
+
+        .ct-vl {
+            font-size: .87rem;
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1.5
+        }
+
+        .ct-fm {
+            background: #fff;
+            border-radius: var(--rl);
+            padding: 34px;
+            border: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: var(--bsm)
+        }
+
+        .ct-fm h3 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-bottom: 22px
+        }
+
+        .ct-mp {
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-top: 22px;
+            border: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: var(--bs)
+        }
+
+        .ct-mp iframe {
+            width: 100%;
+            height: 220px;
+            border: none;
+            display: block
+        }
+
+        .hrs-tb {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .81rem;
+            margin-top: 10px
+        }
+
+        .hrs-tb tr {
+            border-bottom: 1px solid var(--lg)
+        }
+
+        .hrs-tb td {
+            padding: 7px 10px;
+            color: var(--grey)
+        }
+
+        .hrs-tb td:first-child {
+            font-weight: 600;
+            color: var(--dark)
+        }
+
+        .hrs-tb tr:last-child {
+            border-bottom: none
+        }
+
+        .bg-op {
+            background: rgba(34, 197, 94, .1);
+            color: #16a34a;
+            padding: 2px 9px;
+            border-radius: 99px;
+            font-size: .66rem;
+            font-weight: 700
+        }
+
+        .bg-em {
+            background: rgba(227, 30, 36, .1);
+            color: var(--red);
+            padding: 2px 9px;
+            border-radius: 99px;
+            font-size: .66rem;
+            font-weight: 700
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark2);
+            color: rgba(255, 255, 255, .6);
+            padding: 64px 5% 0
+        }
+
+        .ft-emg {
+            background: var(--red);
+            margin: 0 -5% 48px;
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .ft-et {
+            color: #fff;
+            font-size: .92rem;
+            font-weight: 600
+        }
+
+        .ft-et span {
+            opacity: .73;
+            font-weight: 400;
+            margin-left: 8px
+        }
+
+        .ft-en {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none
+        }
+
+        .ft-g {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 48px
+        }
+
+        .ft-br p {
+            font-size: .82rem;
+            line-height: 1.75;
+            margin: 16px 0 18px
+        }
+
+        .ft-sc {
+            display: flex;
+            gap: 10px
+        }
+
+        .ft-sc a {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, .07);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .5);
+            font-size: 13px;
+            text-decoration: none;
+            transition: var(--tr);
+            border: 1px solid rgba(255, 255, 255, .07)
+        }
+
+        .ft-sc a:hover {
+            background: var(--red);
+            color: #fff;
+            border-color: var(--red)
+        }
+
+        .ft-cl h4 {
+            font-size: .81rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: .1em
+        }
+
+        .ft-ls {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .ft-ls a {
+            color: rgba(255, 255, 255, .5);
+            text-decoration: none;
+            font-size: .81rem;
+            transition: var(--tr)
+        }
+
+        .ft-ls a:hover {
+            color: var(--red-l);
+            padding-left: 4px
+        }
+
+        .ft-nw input {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: rgba(255, 255, 255, .06);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: .82rem;
+            outline: none;
+            margin-bottom: 10px
+        }
+
+        .ft-nw input::placeholder {
+            color: rgba(255, 255, 255, .3)
+        }
+
+        .ft-bt {
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: .77rem;
+            color: rgba(255, 255, 255, .3)
+        }
+
+        .ft-bt a {
+            color: rgba(255, 255, 255, .45);
+            text-decoration: none
+        }
+
+        .ft-bt a:hover {
+            color: var(--red-l)
+        }
+
+        /* CHATBOT */
+        .ch-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 58px;
+            height: 58px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 28px rgba(227, 30, 36, .45);
+            cursor: none;
+            transition: var(--tr);
+            border: 3px solid #fff
+        }
+
+        .ch-btn:hover {
+            transform: scale(1.1)
+        }
+
+        .ch-btn i {
+            color: #fff;
+            font-size: 22px
+        }
+
+        .ch-pu {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 14px;
+            height: 14px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            animation: cpls 2s ease infinite
+        }
+
+        @keyframes cpls {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.3)
+            }
+        }
+
+        .ch-bb {
+            position: fixed;
+            bottom: 96px;
+            right: 28px;
+            z-index: 998;
+            background: #fff;
+            border-radius: var(--r);
+            padding: 18px 20px;
+            box-shadow: var(--bsl);
+            max-width: 265px;
+            border: 1px solid rgba(0, 0, 0, .08);
+            display: none;
+            animation: cbp .4s ease
+        }
+
+        .ch-bb.show {
+            display: block
+        }
+
+        @keyframes cbp {
+            from {
+                opacity: 0;
+                transform: scale(.85) translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0)
+            }
+        }
+
+        .ch-bb p {
+            font-size: .82rem;
+            color: var(--dark);
+            line-height: 1.6;
+            margin-bottom: 12px
+        }
+
+        .ch-cl {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: none;
+            color: var(--grey);
+            font-size: 11px
+        }
+
+        .ch-wa {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #25d366;
+            color: #fff;
+            padding: 9px 14px;
+            border-radius: 9px;
+            font-size: .77rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: var(--tr)
+        }
+
+        .ch-wa:hover {
+            background: #1ebe5d
+        }
+
+        .ch-ca {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--red);
+            color: #fff;
+            padding: 9px 14px;
+            border-radius: 9px;
+            font-size: .77rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--tr)
+        }
+
+        .ch-ca:hover {
+            background: var(--red-d)
+        }
+
+        /* BACK TO TOP */
+        .btt {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 999;
+            width: 42px;
+            height: 42px;
+            background: var(--dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            text-decoration: none;
+            box-shadow: var(--bsm);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--tr)
+        }
+
+        .btt.show {
+            opacity: 1;
+            visibility: visible
+        }
+
+        .btt:hover {
+            background: var(--red);
+            transform: translateY(-2px)
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--dark);
+            color: #fff;
+            padding: 13px 22px;
+            border-radius: 12px;
+            font-size: .85rem;
+            z-index: 9999;
+            box-shadow: var(--bsl);
+            transition: transform .4s ease;
+            display: flex;
+            align-items: center;
+            gap: 9px
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0)
+        }
+
+        .toast i {
+            color: #22c55e
+        }
+
+        /* REVEAL */
+        .rv {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .65s ease, transform .65s ease
+        }
+
+        .rv.vis {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .rv-d1 {
+            transition-delay: .1s
+        }
+
+        .rv-d2 {
+            transition-delay: .2s
+        }
+
+        .rv-d3 {
+            transition-delay: .3s
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px) {
+
+            .st-g,
+            .sp-g {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .dc-g {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .ft-g {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .ab-g {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .ab-bd {
+                left: 0
+            }
+
+            .ts-pg {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .ap-in {
+                grid-template-columns: 1fr
+            }
+
+            .ct-g {
+                grid-template-columns: 1fr
+            }
+
+            .nav-info-l a:nth-child(3) {
+                display: none
+            }
+        }
+
+        @media(max-width:768px) {
+            .nav-lks {
+                display: none
+            }
+
+            .ham {
+                display: flex
+            }
+
+            .h-img {
+                opacity: .15;
+                width: 100%
+            }
+
+            .h-cards {
+                display: none
+            }
+
+            .st-g {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px
+            }
+
+            .sp-g,
+            .ca-g,
+            .fc-g {
+                grid-template-columns: 1fr
+            }
+
+            .dc-g {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .ts-pg {
+                grid-template-columns: 1fr
+            }
+
+            .ft-g {
+                grid-template-columns: 1fr;
+                gap: 32px
+            }
+
+            .fr {
+                grid-template-columns: 1fr
+            }
+
+            .ft-emg {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .ft-bt {
+                flex-direction: column;
+                text-align: center
+            }
+
+            .sec {
+                padding: 64px 5%
+            }
+
+            .nav-info-l a:nth-child(2) {
+                display: none
+            }
+        }
+
+        @media(max-width:480px) {
+            .dc-g {
+                grid-template-columns: 1fr
+            }
+
+            .h-btns {
+                flex-direction: column
+            }
+
+            .btn-p,
+            .btn-o {
+                justify-content: center
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CURSOR -->
+    <div id="cur"></div>
+    <div id="curR"></div>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="ld-ico"><i class="fas fa-plus"></i></div>
+        <div class="ld-t">Loading Healthcare Experience</div>
+        <div class="ld-b">
+            <div class="ld-f"></div>
+        </div>
+        <div class="ld-s">Aasi Multi Speciality Hospital · Ramanathapuram, Tamil Nadu</div>
+    </div>
+
+    <!-- TOP MARQUEE -->
+    <div class="mq-bar">
+        <div class="mq-tr">
+            <span><i class="fas fa-phone"></i>04567-232301</span>
+            <span><i class="fas fa-shield-heart"></i>Patient Health is Our Only Concern</span>
+            <span><i class="fas fa-ambulance"></i>24/7 Emergency Available</span>
+            <span><i class="fas fa-map-marker-alt"></i>D Block Bus Stop, Rameswaram Main Road, Ramanathapuram</span>
+            <span><i class="fas fa-calendar-check"></i>Book Appointment Online</span>
+            <span><i class="fab fa-whatsapp"></i>WhatsApp Consultation Available</span>
+            <span><i class="fas fa-phone"></i>04567-232302</span>
+            <span><i class="fas fa-shield-heart"></i>Patient Health is Our Only Concern</span>
+            <span><i class="fas fa-ambulance"></i>24/7 Emergency Available</span>
+            <span><i class="fas fa-map-marker-alt"></i>D Block Bus Stop, Rameswaram Main Road, Ramanathapuram</span>
+            <span><i class="fas fa-calendar-check"></i>Book Appointment Online</span>
+            <span><i class="fab fa-whatsapp"></i>WhatsApp Consultation Available</span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <div class="nav-info">
+            <div class="nav-info-l">
+                <a href="tel:045672323010"><i class="fas fa-phone"></i> 04567-232301 / 232302</a>
+                <a href="mailto:aasihospital@gmail.com"><i class="fas fa-envelope"></i> aasihospital@gmail.com</a>
+                <a href="#contact"><i class="fas fa-map-marker-alt"></i> Ramanathapuram – 623503</a>
+            </div>
+            <a href="#appt" class="nav-emb"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+        </div>
+        <div class="nav-main">
+            <a href="#hero" class="logo">
+                <div class="logo-bx"><i class="fas fa-hospital-alt"></i></div>
+                <div>
+                    <div class="logo-nm">Aasi <em>Hospital</em></div>
+                    <div class="logo-tg">Multi Speciality · Ramanathapuram</div>
+                </div>
+            </a>
+            <ul class="nav-lks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#spec">Specialities</a></li>
+                <li><a href="#care">Patient Care</a></li>
+                <li><a href="#docs">Doctors</a></li>
+                <li><a href="#fac">Facilities</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#appt" class="nav-cta">Book Now</a></li>
+            </ul>
+            <button class="ham" id="ham"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mob-m" id="mobm">
+            <a href="#hero">Home</a><a href="#about">About Us</a>
+            <a href="#spec">Specialities</a><a href="#care">Patient Care</a>
+            <a href="#docs">Our Doctors</a><a href="#fac">Facilities</a>
+            <a href="#contact">Contact</a>
+            <a href="#appt" style="color:var(--red);font-weight:700">Book Appointment</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="h-bg"></div>
+        <div class="h-grid"></div>
+        <div class="h-img"></div>
+        <div class="h-body">
+            <div class="h-pill"><i class="fas fa-shield-heart"></i> Ramanathapuram's Trusted Multi Speciality Hospital
+            </div>
+            <h1 class="h-h1">Patient Health is<br>Our Only <em>Concern</em></h1>
+            <p class="h-sub">Focused on the diagnosis and surgical treatment of disorders affecting the brain, spine,
+                and nervous system.
+                Advanced techniques are used to manage conditions like tumors, trauma, and neurological disorders.
+                Care is delivered with precision, prioritizing safety, recovery, and improved quality of life right here
+                in Ramanathapuram.</p>
+            <div class="h-btns">
+                <a href="#appt" class="btn-p"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+                <a href="tel:045672323010" class="btn-o"><i class="fas fa-phone"></i> Call Us Now</a>
+            </div>
+        </div>
+        <div class="h-cards">
+            <div class="hc">
+                <div class="hc-ic"><i class="fas fa-user-md"></i></div>
+                <div>
+                    <div class="hc-lb">Founded By</div>
+                    <div class="hc-v">Dr. Asik Ameen</div>
+                </div>
+            </div>
+            <div class="hc">
+                <div class="hc-ic"><i class="fas fa-clock"></i></div>
+                <div>
+                    <div class="hc-lb">Always Ready</div>
+                    <div class="hc-v">24/7 Emergency</div>
+                </div>
+            </div>
+            <div class="hc">
+                <div class="hc-ic"><i class="fas fa-bed"></i></div>
+                <div>
+                    <div class="hc-lb">Capacity</div>
+                    <div class="hc-v">100 Beds</div>
+                </div>
+            </div>
+        </div>
+        <div class="h-sc">
+            <div class="sc-d"></div>SCROLL
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats">
+        <div class="st-g">
+            <div class="st-i rv"><span class="st-n" data-target="100">0</span><span class="st-l">Bed Inpatient
+                    Facility</span>
+                <div class="st-dv"></div>
+            </div>
+            <div class="st-i rv rv-d1"><span class="st-n" data-target="10">0</span><span class="st-l">+
+                    Departments</span>
+                <div class="st-dv"></div>
+            </div>
+            <div class="st-i rv rv-d2"><span class="st-n" data-target="7">0</span><span class="st-l">Specialities</span>
+                <div class="st-dv"></div>
+            </div>
+            <div class="st-i rv rv-d3"><span class="st-n" data-target="365">0</span><span class="st-l">Days Emergency
+                    Care</span>
+                <div class="st-dv"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="sec" id="about">
+        <div class="wrap">
+            <div class="ab-g">
+                <div class="ab-iw rv">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&q=80" alt="Aasi Hospital"
+                        class="ab-img">
+                    <div class="ab-bd">
+                        <div class="ab-bd-ic"><i class="fas fa-user-md"></i></div>
+                        <div>
+                            <div class="ab-bn">Dr. Asik Ameen</div>
+                            <div class="ab-bl">Founder & Orthopedic Surgeon</div>
+                        </div>
+                    </div>
+                    <div class="ab-ac"><span class="ab-an">100</span><span class="ab-at">Bed Facility</span></div>
+                </div>
+                <div class="ab-tx rv rv-d1">
+                    <span class="sec-tag">About Us</span>
+                    <h2 class="ab-h">Affordable Healthcare<br><em>For Everyone</em></h2>
+                    <p class="ab-d">Aasi Multi Speciality Hospital is a 100-bedded healthcare facility in Ramanathapuram
+                        dedicated to providing affordable and quality medical services to every section of society.
+                        Founded by Dr. Asik Ameen — an experienced Orthopedic Surgeon — the hospital is built on
+                        patient-centered care and genuine compassion.</p>
+                    <p class="ab-d">With experienced specialist doctors and well-equipped infrastructure including a
+                        modern ICU, Operation Theatre, and 24/7 Emergency Unit, Aasi Hospital delivers reliable, modern,
+                        and accessible healthcare right here in Ramanathapuram.</p>
+                    <div class="ab-fs">
+                        <div class="af"><i class="fas fa-check-circle"></i> 100-Bed Inpatient Facility</div>
+                        <div class="af"><i class="fas fa-check-circle"></i> 10+ Departments</div>
+                        <div class="af"><i class="fas fa-check-circle"></i> 24/7 Emergency Care</div>
+                        <div class="af"><i class="fas fa-check-circle"></i> Affordable Treatment</div>
+                        <div class="af"><i class="fas fa-check-circle"></i> Advanced ICU & OT</div>
+                        <div class="af"><i class="fas fa-check-circle"></i> Ambulance Services</div>
+                    </div>
+                    <a href="#spec" class="btn-p" style="display:inline-flex;width:fit-content"><i
+                            class="fas fa-arrow-right"></i> Our Specialities</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALITIES -->
+    <section class="sec sec-alt" id="spec">
+        <div class="wrap">
+            <div class="sec-hd rv">
+                <div class="sec-tag">Medical Expertise</div>
+                <h2 class="sec-h2">Our <em>Specialities</em></h2>
+                <p class="sec-p">Expert departments staffed by experienced specialists, equipped with modern diagnostic
+                    and therapeutic technology.</p>
+            </div>
+            <div class="sp-g">
+                <div class="sp-c rv">
+                    <div class="sp-ic"><i class="fas fa-heartbeat"></i></div>
+                    <div class="sp-nm">General medicine</div>
+                    <p class="sp-ds">Comprehensive medical care for the prevention, diagnosis, and treatment of a wide
+                        range of health conditions.
+                        Emphasizes early detection, accurate diagnosis, and personalized treatment plans.
+                        Dedicated to promoting overall health, wellness, and long-term disease management</p><a
+                        href="#appt" class="sp-lk">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sp-c rv rv-d1">
+                    <div class="sp-ic"><i class="fas fa-stomach"></i></div>
+                    <div class="sp-nm">Gastroenterology</div>
+                    <p class="sp-ds">Expert diagnosis and treatment of digestive disorders including liver disease,
+                        GERD, IBD, and endoscopic procedures.</p><a href="#appt" class="sp-lk">Book Now <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sp-c rv rv-d2">
+                    <div class="sp-ic"><i class="fas fa-brain"></i></div>
+                    <div class="sp-nm">Neurology</div>
+                    <p class="sp-ds">Care for stroke, epilepsy, migraines, and nerve disorders by specialist
+                        neurologists using advanced diagnostics.</p><a href="#appt" class="sp-lk">Book Now <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sp-c rv rv-d3">
+                    <div class="sp-ic"><i class="fas fa-bone"></i></div>
+                    <div class="sp-nm">Orthopaedics</div>
+                    <p class="sp-ds">Led by our founder Dr. Asik Ameen — joint care, fracture management, spine
+                        treatment, and orthopaedic surgery.</p><a href="#appt" class="sp-lk">Book Now <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sp-c rv">
+                    <div class="sp-ic"><i class="fas fa-baby"></i></div>
+                    <div class="sp-nm">Neuro Surgery</div>
+                    <p class="sp-ds">Focused on the diagnosis and surgical treatment of disorders affecting the brain,
+                        spine, and nervous system.
+                        Advanced techniques are used to manage conditions like tumors, trauma, and neurological
+                        disorders.
+                        Care is delivered with precision, prioritizing safety, recovery, and improved quality of life
+                        healthy growth and timely treatment.</p><a href="#appt" class="sp-lk">Book Now <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sp-c rv rv-d1">
+                    <div class="sp-ic"><i class="fas fa-tooth"></i></div>
+                    <div class="sp-nm">dermatology</div>
+                    <p class="sp-ds">Specialized care for skin, hair, and nail conditions using advanced medical and
+                        cosmetic treatments.
+                        Addresses concerns like acne, infections, pigmentation, and chronic skin disorders.
+                        Focused on healthy, radiant skin with personalized and effective solutions
+                    </p><a href="#appt" class="sp-lk">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sp-c rv rv-d2">
+                    <div class="sp-ic"><i class="fas fa-lungs"></i></div>
+                    <div class="sp-nm">vascular Surgery</div>
+                    <p class="sp-ds">Specialised surgical care for vascular conditions supported by a modern OT
+                        and experienced surgical team.</p><a href="#appt" class="sp-lk">Book Now <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sp-c rv rv-d3">
+                    <div class="sp-ic"><i class="fas fa-flask"></i></div>
+                    <div class="sp-nm">General Surgery</div>
+                    <p class="sp-ds">Skilled surgeons for a wide range of general surgical procedures in a safe, modern,
+                        and sterile environment.</p><a href="#appt" class="sp-lk">Book Now <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE INFINITE MARQUEE -->
+    <div class="svc-mq">
+        <div class="svc-tr">
+            <div class="svc-it"><i class="fas fa-heartbeat"></i><span>Cardiology</span></div>
+            <div class="svc-it"><i class="fas fa-brain"></i><span>Neurology</span></div>
+            <div class="svc-it"><i class="fas fa-bone"></i><span>Orthopaedics</span></div>
+            <div class="svc-it"><i class="fas fa-baby"></i><span>Pediatrics</span></div>
+            <div class="svc-it"><i class="fas fa-tooth"></i><span>Dental Care</span></div>
+            <div class="svc-it"><i class="fas fa-lungs"></i><span>Cardiothoracic Surgery</span></div>
+            <div class="svc-it"><i class="fas fa-stomach"></i><span>Gastroenterology</span></div>
+            <div class="svc-it"><i class="fas fa-ambulance"></i><span>24/7 Emergency</span></div>
+            <div class="svc-it"><i class="fas fa-procedures"></i><span>ICU Care</span></div>
+            <div class="svc-it"><i class="fas fa-syringe"></i><span>Operation Theatre</span></div>
+            <div class="svc-it"><i class="fas fa-pills"></i><span>Pharmacy</span></div>
+            <div class="svc-it"><i class="fab fa-whatsapp"></i><span>WhatsApp Consult</span></div>
+            <div class="svc-it"><i class="fas fa-heartbeat"></i><span>Cardiology</span></div>
+            <div class="svc-it"><i class="fas fa-brain"></i><span>Neurology</span></div>
+            <div class="svc-it"><i class="fas fa-bone"></i><span>Orthopaedics</span></div>
+            <div class="svc-it"><i class="fas fa-baby"></i><span>Pediatrics</span></div>
+            <div class="svc-it"><i class="fas fa-tooth"></i><span>Dental Care</span></div>
+            <div class="svc-it"><i class="fas fa-lungs"></i><span>Cardiothoracic Surgery</span></div>
+            <div class="svc-it"><i class="fas fa-stomach"></i><span>Gastroenterology</span></div>
+            <div class="svc-it"><i class="fas fa-ambulance"></i><span>24/7 Emergency</span></div>
+            <div class="svc-it"><i class="fas fa-procedures"></i><span>ICU Care</span></div>
+            <div class="svc-it"><i class="fas fa-syringe"></i><span>Operation Theatre</span></div>
+            <div class="svc-it"><i class="fas fa-pills"></i><span>Pharmacy</span></div>
+            <div class="svc-it"><i class="fab fa-whatsapp"></i><span>WhatsApp Consult</span></div>
+        </div>
+    </div>
+
+    <!-- PATIENT CARE -->
+    <section class="sec" id="care">
+        <div class="wrap">
+            <div class="sec-hd rv">
+                <div class="sec-tag">Patient Services</div>
+                <h2 class="sec-h2">Exceptional <em>Patient Care</em></h2>
+                <p class="sec-p">From emergency response to diabetes care — our services are designed around what
+                    patients in Ramanathapuram truly need.</p>
+            </div>
+            <div class="ca-g">
+                <div class="ca-c rv">
+                    <div class="ca-iw"><img
+                            src="https://images.unsplash.com/photo-1530026405186-ed1f139313f3?w=600&q=80" class="ca-img"
+                            alt="Diabetes">
+                        <div class="ca-ov"></div>
+                    </div>
+                    <div class="ca-b">
+                        <div class="ca-tg">Chronic Care</div>
+                        <div class="ca-tt">Diabetes Management</div>
+                        <p class="ca-ds">Personalised diabetes care plans including monitoring, medication management,
+                            diet counseling, and complication prevention for long-term health.</p><a href="#appt"
+                            class="btn-sm"><i class="fas fa-stethoscope"></i> Book Consultation</a>
+                    </div>
+                </div>
+                <div class="ca-c rv rv-d1">
+                    <div class="ca-iw"><img
+                            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" class="ca-img"
+                            alt="Checkup">
+                        <div class="ca-ov"></div>
+                    </div>
+                    <div class="ca-b">
+                        <div class="ca-tg">Preventive Health</div>
+                        <div class="ca-tt">Health Checkup Packages</div>
+                        <p class="ca-ds"></p><a href="#appt" class="btn-sm"><i class="fas fa-clipboard-check"></i> Book
+                            Checkup</a>
+                    </div>
+                </div>
+                <div class="ca-c rv rv-d2">
+                    <div class="ca-iw"><img
+                            src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=600&q=80" class="ca-img"
+                            alt="Emergency">
+                        <div class="ca-ov"></div>
+                    </div>
+                    <div class="ca-b">
+                        <div class="ca-tg">Emergency</div>
+                        <div class="ca-tt">24/7 Emergency Care</div>
+                        <p class="ca-ds">Immediate response emergency services available round the clock. Our casualty
+                            unit and trained medical staff ensure rapid stabilisation at any hour.</p><a
+                            href="tel:045672323010" class="btn-sm"><i class="fas fa-ambulance"></i> Call Emergency</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section class="sec sec-alt" id="fac">
+        <div class="wrap">
+            <div class="sec-hd rv">
+                <div class="sec-tag">Our Infrastructure</div>
+                <h2 class="sec-h2">Facilities & <em>Infrastructure</em></h2>
+                <p class="sec-p">Well-equipped facilities designed to support modern medicine and patient comfort in a
+                    clean, safe environment.</p>
+            </div>
+            <div class="fc-g">
+                <div class="fc-c rv">
+                    <div class="fc-ic"><i class="fas fa-ambulance"></i></div>
+                    <div>
+                        <div class="fc-nm">24/7 Emergency & Casualty</div>
+                        <p class="fc-ds">Round-the-clock emergency unit with immediate response care and trained staff
+                            for all types of medical emergencies.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv rv-d1">
+                    <div class="fc-ic"><i class="fas fa-procedures"></i></div>
+                    <div>
+                        <div class="fc-nm">Intensive Care Unit (ICU)</div>
+                        <p class="fc-ds">Fully equipped ICU with continuous patient monitoring, ventilator support, and
+                            round-the-clock critical care attention.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv rv-d2">
+                    <div class="fc-ic"><i class="fas fa-syringe"></i></div>
+                    <div>
+                        <div class="fc-nm">Operation Theatre (OT)</div>
+                        <p class="fc-ds">Modern, sterile operation theatre for general and speciality surgeries with
+                            experienced surgical teams.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv">
+                    <div class="fc-ic"><i class="fas fa-truck-medical"></i></div>
+                    <div>
+                        <div class="fc-nm">Ambulance Service</div>
+                        <p class="fc-ds">Prompt ambulance service for emergency transport and patient transfer —
+                            available 24 hours, 7 days a week.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv rv-d1">
+                    <div class="fc-ic"><i class="fas fa-microscope"></i></div>
+                    <div>
+                        <div class="fc-nm">Advanced Diagnostics</div>
+                        <p class="fc-ds">State-of-the-art diagnostic services including laboratory tests, imaging, and
+                            investigative procedures for accurate diagnosis.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv rv-d2">
+                    <div class="fc-ic"><i class="fas fa-pills"></i></div>
+                    <div>
+                        <div class="fc-nm">Pharmacy Support</div>
+                        <p class="fc-ds">In-house pharmacy stocked with essential medicines to support patients'
+                            treatment without needing to go elsewhere.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv">
+                    <div class="fc-ic"><i class="fas fa-bed"></i></div>
+                    <div>
+                        <div class="fc-nm">100-Bed Inpatient Facility</div>
+                        <p class="fc-ds">Comfortable, clean, and safe inpatient rooms with a caring and attentive
+                            nursing team focused on recovery.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv rv-d1">
+                    <div class="fc-ic"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <div class="fc-nm">WhatsApp Consultation</div>
+                        <p class="fc-ds">Connect with our doctors via WhatsApp for initial consultations, follow-ups,
+                            and health queries at your convenience.</p>
+                    </div>
+                </div>
+                <div class="fc-c rv rv-d2">
+                    <div class="fc-ic"><i class="fas fa-heart"></i></div>
+                    <div>
+                        <div class="fc-nm">Patient-Friendly Environment</div>
+                        <p class="fc-ds">A clean, safe, and welcoming hospital environment focused on patient comfort
+                            and the well-being of families.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section class="sec" id="docs">
+        <div class="wrap">
+            <div class="sec-hd rv">
+                <div class="sec-tag">Our Team</div>
+                <h2 class="sec-h2">Meet Our <em>Expert Doctors</em></h2>
+                <p class="sec-p">Our dedicated team of specialists brings expertise and genuine commitment to every
+                    patient's well-being.</p>
+            </div>
+            <div class="dc-g">
+                <div class="dc-c rv">
+                    <div class="dc-iw"><img src="c:\Users\ATHULYA\Downloads\Asik sir.jpg" class="dc-img"
+                            alt="Dr. Asik Ameen">
+                        <div class="dc-ov"><a href="#appt" class="dc-s"><i class="fas fa-calendar"></i></a><a
+                                href="mailto:aasihospital@gmail.com" class="dc-s"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="dc-b">
+                        <div class="dc-nm">Dr. Asik Ameen</div>
+                        <div class="dc-sp">Founder & Orthopedic Surgeon</div>
+                        <div class="dc-ex">MBBS, MS Orthopaedics</div>
+                    </div>
+                </div>
+                <div class="dc-c rv rv-d1">
+                    <div class="dc-iw"><img src="c:\Users\ATHULYA\Downloads\harrish rahman s11.jpeg" class="dc-img"
+                            alt="Cardiologist">
+                        <div class="dc-ov"><a href="#appt" class="dc-s"><i class="fas fa-calendar"></i></a><a
+                                href="mailto:aasihospital@gmail.com" class="dc-s"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="dc-b">
+                        <div class="dc-nm">Dr. Harrish Rahman</div>
+                        <div class="dc-sp">orthopedic Surgeon</div>
+                        <div class="dc-ex">MBBS, DNB</div>
+                    </div>
+                </div>
+                <div class="dc-c rv rv-d2">
+                    <div class="dc-iw"><img src="c:\Users\ATHULYA\Pictures\unknown dr.jpeg" class="dc-img"
+                            alt="Neurologist">
+                        <div class="dc-ov"><a href="#appt" class="dc-s"><i class="fas fa-calendar"></i></a><a
+                                href="mailto:aasihospital@gmail.com" class="dc-s"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="dc-b">
+                        <div class="dc-nm">Dr. Vilvanageshwaran</div>
+                        <div class="dc-sp">Consultantt</div>
+                        <div class="dc-ex">MBBS</div>
+                    </div>
+                </div>
+                <div class="dc-c rv rv-d3">
+                    <div class="dc-iw"><img src="c:\Users\ATHULYA\Downloads\dr pragadeeswaran.jpeg" class="dc-img"
+                            alt="General Physician">
+                        <div class="dc-ov"><a href="#appt" class="dc-s"><i class="fas fa-calendar"></i></a><a
+                                href="mailto:aasihospital@gmail.com" class="dc-s"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="dc-b">
+                        <div class="dc-nm">General Physician</div>
+                        <div class="dc-sp">Consultant General medicine</div>
+                        <div class="dc-ex">MBBS, DNB, General Medicine</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="sec" id="testi">
+        <div class="wrap">
+            <div class="sec-hd rv">
+                <div class="sec-tag" style="background:rgba(227,30,36,.18);color:#ff8084">Patient Stories</div>
+                <h2 class="sec-h2">What Our <em>Patients Say</em></h2>
+                <p class="sec-p">Real experiences from families in Ramanathapuram who trusted us with their health.</p>
+            </div>
+            <div class="ts-sl rv">
+                <div class="ts-tr" id="tsTr">
+                    <div class="ts-pg">
+                        <div class="ts-cd">
+                            <div class="ts-st"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <i class="fas fa-quote-left ts-qi"></i>
+                            <p class="ts-tx">"Dr. Asik Ameen treated my knee fracture with great precision. The care at
+                                Aasi Hospital was excellent and affordable. The staff were very attentive and kind
+                                throughout my stay."</p>
+                            <div class="ts-au">
+                                <div class="ts-av">RM</div>
+                                <div>
+                                    <div class="ts-nm">Rajan Murugesan</div>
+                                    <div class="ts-lc">Ramanathapuram, Tamil Nadu</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ts-cd">
+                            <div class="ts-st"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <i class="fas fa-quote-left ts-qi"></i>
+                            <p class="ts-tx">"My father had a cardiac episode and we rushed to Aasi Hospital. The
+                                emergency team responded immediately. Thanks to their prompt care, he recovered fully.
+                                We are forever grateful."</p>
+                            <div class="ts-au">
+                                <div class="ts-av">FA</div>
+                                <div>
+                                    <div class="ts-nm">Fathima Azeema</div>
+                                    <div class="ts-lc">Rameswaram, Tamil Nadu</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ts-cd">
+                            <div class="ts-st"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <i class="fas fa-quote-left ts-qi"></i>
+                            <p class="ts-tx">"We brought our child here for fever and the pediatrics team was wonderful.
+                                Clean environment, friendly doctors, and very reasonable charges. Highly recommend Aasi
+                                Hospital."</p>
+                            <div class="ts-au">
+                                <div class="ts-av">SK</div>
+                                <div>
+                                    <div class="ts-nm">Selvi Kannan</div>
+                                    <div class="ts-lc">Paramakudi, Tamil Nadu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ts-pg">
+                        <div class="ts-cd">
+                            <div class="ts-st"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <i class="fas fa-quote-left ts-qi"></i>
+                            <p class="ts-tx">"I manage Type 2 diabetes and the team here has been incredible. They gave
+                                me a proper diet plan and medication schedule. My sugar levels are now well controlled
+                                thanks to their guidance."</p>
+                            <div class="ts-au">
+                                <div class="ts-av">MI</div>
+                                <div>
+                                    <div class="ts-nm">Mohamed Ismail</div>
+                                    <div class="ts-lc">Ramanathapuram, Tamil Nadu</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ts-cd">
+                            <div class="ts-st"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <i class="fas fa-quote-left ts-qi"></i>
+                            <p class="ts-tx">"Had my general surgery done at Aasi and was very impressed with the OT
+                                facilities and post op car Recovered quickly. The hospital is clean and the nurses are
+                                genuinely caring."</p>
+                            <div class="ts-au">
+                                <div class="ts-av">VP</div>
+                                <div>
+                                    <div class="ts-nm">Vijayalakshmi Pillai</div>
+                                    <div class="ts-lc">Mandapam, Tamil Nadu</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ts-cd">
+                            <div class="ts-st"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <i class="fas fa-quote-left ts-qi"></i>
+                            <p class="ts-tx">"Affordable and quality healthcare in Ramanathapuram Aasi Hospital truly
+                                lives up to its tagline. Quick appointments, accurate diagnosis, and a very friendly
+                                medical team."</p>
+                            <div class="ts-au">
+                                <div class="ts-av">AR</div>
+                                <div>
+                                    <div class="ts-nm">Arumugam Rajendran</div>
+                                    <div class="ts-lc">Thiruvadanai, Tamil Nadu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts-ct">
+                    <button class="ts-btn" onclick="tPrev()"><i class="fas fa-chevron-left"></i></button>
+                    <div class="ts-dts"><button class="ts-dt on" onclick="tGo(0)"></button><button class="ts-dt"
+                            onclick="tGo(1)"></button></div>
+                    <button class="ts-btn" onclick="tNext()"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPOINTMENT -->
+    <section id="appt">
+        <div class="ap-in">
+            <div class="ap-l rv">
+                <h2>Book Your Appointment<br>with Us Today</h2>
+                <p>Our care coordinators are available to assist you with scheduling, specialist consultations, and
+                    health checkup packages. Affordable care starts with one call.</p>
+                <div class="ap-ph">
+                    <div class="ap-ph-ic"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <div class="ap-ph-lb">24/7 Helpline</div>
+                        <div class="ap-ph-n">8072027840 / 8072027840</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ap-fm rv rv-d1">
+                <h3><i class="fas fa-calendar-check" style="color:var(--red);margin-right:8px"></i>Book an Appointment
+                </h3>
+                <div class="fr">
+                    <div class="fg"><label>Full Name *</label><input type="text" placeholder="Your full name" id="aN">
+                    </div>
+                    <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="Your phone number"
+                            id="aP"></div>
+                </div>
+                <div class="fr">
+                    <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"
+                            id="aE"></div>
+                    <div class="fg"><label>Department *</label>
+                        <select id="aD">
+                            <option value="">Select Department</option>
+                            <option>General medicine</option>
+                            <option>Gastroenterology</option>
+                            <option>Neurology</option>
+                            <option>Orthopaedics</option>
+                            <option>Neuro surgery</option>
+                            <option>Dermatology</option>
+                            <option>vascular Surgery</option>
+                            <option>General Surgery</option>
+                            <option>Diabetes Management</option>
+                            <option>Urology</option>
+                            <option>Ophthalmology</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fr">
+                    <div class="fg"><label>Preferred Date</label><input type="date" id="aDt"></div>
+                    <div class="fg"><label>Preferred Time</label>
+                        <select id="aT">
+                            <option value="">Select Time</option>
+                            <option>08:00 AM – 09:00 AM</option>
+                            <option>09:00 AM – 10:00 AM</option>
+                            <option>10:00 AM – 11:00 AM</option>
+                            <option>11:00 AM – 12:00 PM</option>
+                            <option>02:00 PM – 03:00 PM</option>
+                            <option>03:00 PM – 04:00 PM</option>
+                            <option>05:00 PM – 06:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-p btn-blk" onclick="submitAppt()"><i class="fas fa-calendar-check"></i> Confirm
+                    Appointment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec sec-alt" id="contact">
+        <div class="wrap">
+            <div class="sec-hd rv">
+                <div class="sec-tag">Get In Touch</div>
+                <h2 class="sec-h2">Contact <em>Us</em></h2>
+                <p class="sec-p">We're here to help. Reach out anytime and our team will respond promptly as soon as
+                    possible.</p>
+            </div>
+            <div class="ct-g">
+                <div class="ct-inf rv">
+                    <div class="ct-it">
+                        <div class="ct-ic"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <div class="ct-lb">Our Address</div>
+                            <div class="ct-vl">6/1155-1, D Block Bus Stop, Opposite RTO Office,<br>Rameswaram Main Road,
+                                Ramanathapuram – 623503</div>
+                        </div>
+                    </div>
+                    <div class="ct-it">
+                        <div class="ct-ic"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <div class="ct-lb">Phone Numbers</div>
+                            <div class="ct-vl">8072027840<br>8072027840</div>
+                        </div>
+                    </div>
+                    <div class="ct-it">
+                        <div class="ct-ic"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="ct-lb">Email Address</div>
+                            <div class="ct-vl">aasihospital@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="ct-it">
+                        <div class="ct-ic"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <div class="ct-lb">Working Hours</div>
+                            <table class="hrs-tb">
+                                <tr>
+                                    <td>Mon – Thu</td>
+                                    <td>8:00 AM – 7:00 PM</td>
+                                    <td><span class="bg-op">Open</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Friday</td>
+                                    <td>8:00 AM – 6:30 PM</td>
+                                    <td><span class="bg-op">Open</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday</td>
+                                    <td>9:30 AM – 5:00 PM</td>
+                                    <td><span class="bg-op">Open</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday</td>
+                                    <td>9:30 AM – 3:00 PM</td>
+                                    <td><span class="bg-op">Open</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Emergency</td>
+                                    <td>24 / 7 Always</td>
+                                    <td><span class="bg-em">24/7</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="ct-mp"><iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62860.0!2d78.8!3d9.37!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b01497f89f3b16b%3A0xa6e94439bcde9e38!2sRamanathapuram%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1704000000000!5m2!1sen!2sin"
+                            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                </div>
+                <div class="ct-fm rv rv-d1">
+                    <h3><i class="fas fa-paper-plane" style="color:var(--red);margin-right:8px"></i>Send Us a Message
+                    </h3>
+                    <div class="fg"><label>Full Name *</label><input type="text" placeholder="Your full name" id="cN">
+                    </div>
+                    <div class="fr">
+                        <div class="fg"><label>Phone *</label><input type="tel" placeholder="Your phone" id="cPh"></div>
+                        <div class="fg"><label>Email *</label><input type="email" placeholder="your@email.com" id="cEm">
+                        </div>
+                    </div>
+                    <div class="fg"><label>Subject</label><input type="text" placeholder="How can we help?" id="cSb">
+                    </div>
+                    <div class="fg"><label>Message *</label><textarea placeholder="Write your message here..." id="cMsg"
+                            style="min-height:130px"></textarea></div>
+                    <button class="btn-p btn-blk" onclick="submitContact()"><i class="fas fa-paper-plane"></i> Send
+                        Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="ft-emg">
+            <div class="ft-et"><i class="fas fa-ambulance" style="margin-right:8px"></i>24/7 Emergency Services
+                Available<span>— Immediate response care, always ready</span></div>
+            <a href="tel:8072027840" class="ft-en"><i class="fas fa-phone-alt"></i> 8072027840</a>
+        </div>
+        <div class="ft-g">
+            <div class="ft-br">
+                <a href="#hero" class="logo">
+                    <div class="logo-bx"><i class="fas fa-hospital-alt"></i></div>
+                    <div>
+                        <div class="logo-nm" style="color:#fff">Aasi <em>Hospital</em></div>
+                        <div class="logo-tg">Multi Speciality · Ramanathapuram</div>
+                    </div>
+                </a>
+                <p>A 100-bed multi-speciality hospital in Ramanathapuram, Tamil Nadu, founded by Dr. Asik Ameen.
+                    Dedicated to providing affordable, compassionate, and quality healthcare for every section of
+                    society.</p>
+                <div class="ft-sc">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="ft-cl">
+                <h4>Quick Links</h4>
+                <ul class="ft-ls">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#spec">Specialities</a></li>
+                    <li><a href="#docs">Our Doctors</a></li>
+                    <li><a href="#fac">Facilities</a></li>
+                    <li><a href="#appt">Book Appointment</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">Careers</a></li>
+                </ul>
+            </div>
+            <div class="ft-cl">
+                <h4>Departments</h4>
+                <ul class="ft-ls">
+                    <li><a href="#spec">Cardiology</a></li>
+                    <li><a href="#spec">Gastroenterology</a></li>
+                    <li><a href="#spec">Neurology</a></li>
+                    <li><a href="#spec">Orthopaedics</a></li>
+                    <li><a href="#spec">Pediatrics</a></li>
+                    <li><a href="#spec">Dental Care</a></li>
+                    <li><a href="#spec">Cardiothoracic Surgery</a></li>
+                    <li><a href="#spec">General Surgery</a></li>
+                </ul>
+            </div>
+            <div class="ft-cl">
+                <h4>Stay Connected</h4>
+                <p style="font-size:.81rem;line-height:1.75;margin-bottom:14px">Subscribe for health tips and hospital
+                    updates from our expert team.</p>
+                <div class="ft-nw">
+                    <input type="email" placeholder="Enter your email address" id="newsEm">
+                    <button class="btn-p btn-blk" onclick="subNews()" style="font-size:.81rem;padding:11px"><i
+                            class="fas fa-paper-plane"></i> Subscribe</button>
+                </div>
+                <div
+                    style="margin-top:20px;background:rgba(255,255,255,.04);border-radius:var(--r);padding:16px;border:1px solid rgba(255,255,255,.07)">
+                    <div
+                        style="font-size:.68rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">
+                        Address</div>
+                    <div style="font-size:.79rem;color:rgba(255,255,255,.58);line-height:1.65">6/1155-1, D Block Bus
+                        Stop,<br>Opp. RTO Office, Rameswaram Main Road,<br>Ramanathapuram – 623603</div>
+                </div>
+            </div>
+        </div>
+        <div class="ft-bt">
+            <div>© 2026 Aasi Multi Speciality Hospital, Ramanathapuram. All rights reserved.</div>
+            <div style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms</a><a
+                    href="#">Disclaimer</a></div>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div class="ch-bb" id="chBb">
+        <button class="ch-cl" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+        <p>👋 Hello! I'm <strong style="color:var(--red)">Aasi Care Bot</strong>.<br>How can I help you today?</p>
+        <a href="https://wa.me/918072027840" class="ch-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp
+            Consultation</a>
+        <a href="tel:8072027840" class="ch-ca"><i class="fas fa-phone"></i> Call 8072027840</a>
+    </div>
+    <div class="ch-btn" onclick="toggleChat()">
+        <i class="fas fa-comment-medical" id="chIco"></i>
+        <div class="ch-pu"></div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <a href="#hero" class="btt" id="btt"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg"></span></div>
+
+    <script>
+        /* CURSOR */
+        const cur = document.getElementById('cur'), curR = document.getElementById('curR');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
+        (function anim() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(anim) })();
+        document.querySelectorAll('a,button,.sp-c,.dc-c,.ca-c,.fc-c').forEach(el => {
+            el.addEventListener('mouseenter', () => { cur.style.width = '22px'; cur.style.height = '22px'; curR.style.width = '50px'; curR.style.height = '50px' });
+            el.addEventListener('mouseleave', () => { cur.style.width = '12px'; cur.style.height = '12px'; curR.style.width = '36px'; curR.style.height = '36px' });
+        });
+
+        /* LOADER */
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hide'), 2400));
+
+        /* NAVBAR SCROLL */
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.style.top = window.scrollY > 50 ? '0' : '36px';
+            document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+        });
+
+        /* HAMBURGER */
+        const ham = document.getElementById('ham'), mob = document.getElementById('mobm');
+        ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open') });
+        mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open') }));
+
+        /* COUNTERS */
+        const started = new Set();
+        function animCount(el) {
+            const t = parseInt(el.dataset.target), d = 1800, s = t / (d / 16); let c = 0;
+            const iv = setInterval(() => {
+                c += s; if (c >= t) { c = t; clearInterval(iv) }
+                el.textContent = t >= 1000 ? Math.floor(c / 1000) + 'K+' : Math.floor(c) + '+';
+            }, 16);
+        }
+
+        /* REVEAL */
+        const obs = new IntersectionObserver(e => {
+            e.forEach(en => {
+                if (en.isIntersecting) {
+                    en.target.classList.add('vis');
+                    if (en.target.classList.contains('st-n') && !started.has(en.target)) { started.add(en.target); animCount(en.target) }
+                }
+            });
+        }, { threshold: .12 });
+        document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+        document.querySelectorAll('.st-n').forEach(el => obs.observe(el));
+
+        /* TESTIMONIAL */
+        let ti = 0;
+        const tsTr = document.getElementById('tsTr'), tDts = document.querySelectorAll('.ts-dt');
+        const tTot = document.querySelectorAll('.ts-pg').length;
+        function tGo(i) { ti = i; tsTr.style.transform = `translateX(-${i * 100}%)`; tDts.forEach((d, x) => d.classList.toggle('on', x === i)) }
+        function tNext() { tGo((ti + 1) % tTot) }
+        function tPrev() { tGo((ti - 1 + tTot) % tTot) }
+        setInterval(tNext, 6500);
+
+        /* TOAST */
+        function showToast(m) { const t = document.getElementById('toast'); document.getElementById('toastMsg').textContent = m; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3800) }
+
+        /* FORMS */
+        function submitAppt() {
+            const n = document.getElementById('aN').value.trim(), p = document.getElementById('aP').value.trim(), d = document.getElementById('aD').value;
+            if (!n || !p || !d) { showToast('Please fill all required fields.'); return }
+            showToast('Appointment requested! We\'ll confirm within 30 minutes. ✓');
+            ['aN', 'aP', 'aE', 'aD', 'aDt', 'aT'].forEach(id => document.getElementById(id).value = '');
+        }
+        function submitContact() {
+            const n = document.getElementById('cN').value.trim(), e = document.getElementById('cEm').value.trim(), m = document.getElementById('cMsg').value.trim();
+            if (!n || !e || !m) { showToast('Please fill all required fields.'); return }
+            showToast('Message sent! We\'ll reply within 24 hours. ✓');
+            ['cN', 'cPh', 'cEm', 'cSb', 'cMsg'].forEach(id => document.getElementById(id).value = '');
+        }
+        function subNews() {
+            const e = document.getElementById('newsEm').value.trim();
+            if (!e || !e.includes('@')) { showToast('Please enter a valid email address.'); return }
+            showToast('welcome to Aasi Hospital succesfully Logged In 🎉');
+            document.getElementById('newsEm').value = '';
+        }
+
+        /* CHATBOT */
+        let chatOpen = false;
+        function toggleChat() { chatOpen = !chatOpen; document.getElementById('chBb').classList.toggle('show', chatOpen); document.getElementById('chIco').className = chatOpen ? 'fas fa-times' : 'fas fa-comment-medical' }
+
+        /* SMOOTH SCROLL */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }) } });
+        });
+
+        /* ACTIVE NAV */
+        window.addEventListener('scroll', () => {
+            let c = '';
+            document.querySelectorAll('section[id]').forEach(s => { if (window.scrollY >= s.offsetTop - 130) c = s.id });
+            document.querySelectorAll('.nav-lks a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + c));
+        });
+    </script>
+</body>
+
+</html>
+<href> <a>
+        <www class="byitus in"></www>
+    </a></href>
